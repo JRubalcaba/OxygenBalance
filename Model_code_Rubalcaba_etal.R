@@ -4,7 +4,7 @@
 # "Oxygen limitation may affect the temperature- and size-dependence of metabolism in aquatic ectotherms". PNAS.
 ######## ######## ######## ######## ######## ######## ######## ######## ######## ######## ######## ######## ######
 
-OxBalance <- function(Tw,    # Water temperature (ºC)
+OxBalance <- function(Tw,    # Water temperature (ÂºC)
                       S=35,  # Salinity (parts per thousand)
                       v=0.01,# water velocity (m/s)
                       Co=1,  # Oxygen concentration (0-1, where 1=equilibrium water-atmosphere)
@@ -53,7 +53,7 @@ OxBalance <- function(Tw,    # Water temperature (ºC)
 
 ########  EXAMPLE DATA
 
-Tw <- seq(-10, 25, length.out = 100) # Water temperature range (ºC)
+Tw <- seq(-10, 25, length.out = 100) # Water temperature range (ÂºC)
 S <- 0 # Salinity (ppt) -freshwater
 M <- 100 # Body mass (g)
 b0 <- 7600 # Normalization constant
@@ -72,7 +72,7 @@ out_MMR <- OxBalance(Tw, S=S, v=v, M=M, b0=b0, a=a, b=b, delta=delta, Km=Km, h=h
 # Maximum metabolic rate
 plot(out_MMR$actual_met_rate/M ~ Tw, ylim=c(0, 0.1), type="l", lwd=2, col="grey80", 
      ylab=expression(paste("Mass-specific metabolic rate ( ", mg[O2], g^-1, h^-1, ")")),
-     xlab="Water temperature (ºC)")
+     xlab="Water temperature (ÂºC)")
 # Resting metabolic rate
 lines(out_RMR$actual_met_rate/M ~ Tw, lwd=2)
 
@@ -81,5 +81,5 @@ AS <- out_MMR$actual_met_rate - out_RMR$actual_met_rate
 
 plot(AS ~ Tw,  type="l", lwd=2, 
      ylab=expression(paste("Aerobic scope ( ", mg[O2], g^-1, h^-1, ")")),
-     xlab="Water temperature (ºC)")
+     xlab="Water temperature (ÂºC)")
 
